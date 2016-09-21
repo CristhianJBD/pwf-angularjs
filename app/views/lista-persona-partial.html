@@ -5,21 +5,30 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
                     <th>Username</th>
+                    <th>Alias</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Direccion</th>
+                    <th>Fecha Creacion</th>
+                    <th>Fecha Modificacion</th>
+
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="item in data.list">
-                    <td>
-                        {{item.nombre}}
-                    </td>
-                    <td>
-                        {{item.apellido}}
-                    </td>
-                    <td>@ {{item.username }}
-                    </td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.apellido}}</td>
+                    <td>@ {{item.username }}</td>
+                    <td>{{item.alias }}</td>
+                    <td>{{item.telefono }}</td>
+                    <td>{{item.email }}</td>
+                    <td>{{item.direccion }}</td>
+                    <td>{{item.fechacreacion | date:'dd-MM-yyyy'}}</td>
+                    <td>{{item.Modificacion | date:'dd-MM-yyyy'}}</td>
+
                 </tr>
             </tbody>
         </table>
