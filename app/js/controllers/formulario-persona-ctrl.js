@@ -3,8 +3,8 @@
  * @class
  */
 var contador = 0;
-app.controller('formularioPersonaCtrl', ['$scope', 'Shared',
-    function ($scope, Shared) {
+app.controller('formularioPersonaCtrl', ['$scope', 'Shared', '$http',
+    function ($scope, Shared,$http) {
 
 
         /**
@@ -21,6 +21,7 @@ app.controller('formularioPersonaCtrl', ['$scope', 'Shared',
         $scope.agregar = function (params) {
             var regEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
             var regTelefono = /^[0-9]*$/ ;
+
             if (regEmail.test($scope.persona.email) == false) {
                 alert('El Email ingresado no es válido');
                 return false;
@@ -28,10 +29,17 @@ app.controller('formularioPersonaCtrl', ['$scope', 'Shared',
                 alert('El numero de telefono ingresado no es válido');
                 return false;
             } else {
-                contador = contador + 1;
-                $scope.persona.id = contador;
-                $scope.persona.fechacreacion = new Date();
-                $scope.data.list.push(angular.copy($scope.persona));
+                //contador = contador + 1;
+                //$scope.persona.id = {};
+                //$scope.persona.fechacreacion = {};
+
+                //$scope.data.total = contador;
+
+                $http.post('http://localhost:1337/163.172.218.124/pwf/rest/agenda',$scope.persona)
+                    .success(function (data) {
+                        $scope.data.list.push(angular.copy(data));
+                    })
+
                 $scope.persona = {};
                     window.alert("El contacto se ha guardado correctamente");
             }

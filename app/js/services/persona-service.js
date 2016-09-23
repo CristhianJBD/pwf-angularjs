@@ -11,9 +11,8 @@ app.service('personaService', ['$http', function ($http) {
          * @function
          */
         obtener: function (params) {
-            return $http.get('data/personas.json', {
-                params: params
-            });
+            return $http.get('http://localhost:1337/163.172.218.124/pwf/rest/agenda', {params: params})
+
         }
     }
 }]);

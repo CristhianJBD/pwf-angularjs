@@ -4,10 +4,17 @@
     <div class="panel-body">
         <table class="table table-striped">
             <thead>
+            <tr>
+                <td class=filter><input size="10" placeholder="Nombre" ng-model="filtrar.nombre" /></td>
+                <td class=filter><input size="10" placeholder="Apellido" ng-model="filtrar.apellido" /></td>
+                <td class=filter><input size="10" placeholder="Alias" ng-model="filtrar.alias" /></td>
+                <td class=filter><input size="10" placeholder="Telefono" ng-model="filtrar.telefono" /></td>
+                <td class=filter><input size="20" placeholder="Email" ng-model="filtrar.email" /></td>
+                <td class=filter><input size="12" placeholder="Direccion" ng-model="filtrar.direccion" /></td>
+             </tr>
                 <tr>
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Username</th>
                     <th>Alias</th>
                     <th>Telefono</th>
                     <th>Email</th>
@@ -18,16 +25,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in data.list">
+                <tr ng-repeat="item in data.list | filter:filtrar:strict">
                     <td>{{item.nombre}}</td>
                     <td>{{item.apellido}}</td>
-                    <td>@ {{item.username }}</td>
                     <td>{{item.alias }}</td>
                     <td>{{item.telefono }}</td>
                     <td>{{item.email }}</td>
                     <td>{{item.direccion }}</td>
-                    <td>{{item.fechacreacion | date:'dd-MM-yyyy'}}</td>
-                    <td>{{item.Modificacion | date:'dd-MM-yyyy'}}</td>
+                    <td>{{item.fechacreacion | date:'dd-MM-yyyy HH-ss'}}</td>
+                    <td>{{item.fechamodificacion | date:'dd-MM-yyyy HH-ss'}}</td>
+                    <td><button class="btn-xs btn-default btn-del" >Editar</button></td>
+                    <td><button class="btn-xs btn-default btn-del">Borrar</button></td>
 
                 </tr>
             </tbody>

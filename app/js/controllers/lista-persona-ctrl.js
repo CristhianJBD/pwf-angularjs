@@ -20,7 +20,10 @@ app.controller('listaPersonaCtrl', ['$scope', 'personaService', 'Shared',
         function getData(params) {
             personaService.obtener(params)
                 .success(function (data) {
-                    $scope.data.list = data;
+                    $scope.data.list = data.lista;
+                    $scope.data.total=data.total;
+                    console.log($scope.data.list[0])
+                    console.log($scope.data.total)
                 }).error(function (data, code) {
                     alert("Error al obtener las personas");
                 });
