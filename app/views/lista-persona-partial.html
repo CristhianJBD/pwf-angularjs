@@ -9,18 +9,18 @@
                 <td class=filter><input size="10" placeholder="Apellido" ng-model="filtrar.apellido" /></td>
                 <td class=filter><input size="10" placeholder="Alias" ng-model="filtrar.alias" /></td>
                 <td class=filter><input size="10" placeholder="Telefono" ng-model="filtrar.telefono" /></td>
-                <td class=filter><input size="20" placeholder="Email" ng-model="filtrar.email" /></td>
+                <td class=filter><input size="18" placeholder="Email" ng-model="filtrar.email" /></td>
                 <td class=filter><input size="12" placeholder="Direccion" ng-model="filtrar.direccion" /></td>
              </tr>
                 <tr>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Alias</th>
-                    <th>Telefono</th>
+                    <th>Teléfono</th>
                     <th>Email</th>
-                    <th>Direccion</th>
-                    <th>Fecha Creacion</th>
-                    <th>Fecha Modificacion</th>
+                    <th>Dirección</th>
+                    <th>Fecha de Creación</th>
+                    <th>Fecha de Modificación</th>
 
                 </tr>
             </thead>
@@ -34,8 +34,10 @@
                     <td>{{item.direccion }}</td>
                     <td>{{item.fechacreacion | date:'dd-MM-yyyy HH-ss'}}</td>
                     <td>{{item.fechamodificacion | date:'dd-MM-yyyy HH-ss'}}</td>
-                    <td><button class="btn-xs btn-default btn-del" >Editar</button></td>
-                    <td><button class="btn-xs btn-default btn-del">Borrar</button></td>
+
+                    <td><button class="glyphicon glyphicon-eye-open" ng-click="verContacto(item)" ></button></td>
+                    <td><button class="glyphicon glyphicon-edit" ng-click="editarContacto(item)" ></button></td>
+                    <td><button class="glyphicon glyphicon-trash" ng-click="borrarContacto(item)"></button></td>
 
                 </tr>
             </tbody>

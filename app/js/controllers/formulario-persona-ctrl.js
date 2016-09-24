@@ -2,10 +2,9 @@
  * Clase encargada de manejar el listado de personas.
  * @class
  */
-var contador = 0;
 app.controller('formularioPersonaCtrl', ['$scope', 'Shared', '$http',
     function ($scope, Shared,$http) {
-
+        var url = 'http://localhost:1337/163.172.218.124/pwf/rest/agenda';
 
         /**
          * Array que contiene los datos de la lista
@@ -22,29 +21,50 @@ app.controller('formularioPersonaCtrl', ['$scope', 'Shared', '$http',
             var regEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
             var regTelefono = /^[0-9]*$/ ;
 
-            if (regEmail.test($scope.persona.email) == false) {
+            if($scope.persona.nombre == undefined){
+                alert('Debe ingresar el Nombre del nuevo Contacto');
+                return false;
+            }
+            else if($scope.persona.apellido == undefined) {
+                alert('Debe ingresar el Apellido del nuevo Contacto');
+                return false;
+            }
+            else if($scope.persona.alias == undefined){
+                alert('Debe ingresar el Alias del nuevo Contacto');
+                return false;
+            }
+            else if($scope.persona.telefono == undefined){
+                alert('Debe ingresar el numero de Telefono del nuevo Contacto');
+                return false;
+            }
+            else if($scope.persona.email == undefined) {
+                alert('Debe ingresar el Email del nuevo Contacto');
+                return false;
+            }
+            else if($scope.persona.direccion == undefined){
+                alert('Debe ingresar la Direccion del nuevo Contacto');
+                return false;
+            }
+            else if (regEmail.test($scope.persona.email) == false) {
                 alert('El Email ingresado no es válido');
                 return false;
-            }else if(regTelefono.test($scope.persona.telefono) == false){
+            }
+            else if(regTelefono.test($scope.persona.telefono) == false){
                 alert('El numero de telefono ingresado no es válido');
                 return false;
-            } else {
-                //contador = contador + 1;
-                //$scope.persona.id = {};
-                //$scope.persona.fechacreacion = {};
-
-                //$scope.data.total = contador;
-
-                $http.post('http://localhost:1337/163.172.218.124/pwf/rest/agenda',$scope.persona)
-                    .success(function (data) {
-                        $scope.data.list.push(angular.copy(data));
-                    })
-
-                $scope.persona = {};
-                    window.alert("El contacto se ha guardado correctamente");
             }
-
-        }
+            else {
+                $http.post(url,$scope.persona)
+                    .success(function (response) {
+                        $scope.data.list.push(angular.copy(response));
+                        window.alert("El contacto se ha guardado correctamente");
+                        $scope.persona = {};
+                    })
+                    .error(function (error) {
+                        window.alert("El contacto no se guardo correctamente")
+                    })
+            }
+        };
 
         $scope.solonumeros = function (e) {
 
@@ -62,6 +82,6 @@ app.controller('formularioPersonaCtrl', ['$scope', 'Shared', '$http',
                 return false;
             }
 
-        }
+        };
     }
  ]);
