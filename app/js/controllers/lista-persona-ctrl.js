@@ -56,7 +56,7 @@ app.controller('listaPersonaCtrl', ['$scope', 'personaService', 'Shared', '$http
 
             if(opcion == true) {
                 $http.delete(url + '/' + item.id)
-                    .sucess(function () {
+                    .success(function () {
                         getData();
                         window.alert("El contacto ha sido eliminado correctamente");
                         window.open("#/", '_self', false);
@@ -79,6 +79,30 @@ app.controller('listaPersonaCtrl', ['$scope', 'personaService', 'Shared', '$http
             .error(function () {
                 window.alert("No se ha podido obtener el contacto");
             });
+        };
+
+
+        $scope.buscarContactos = function () {
+            var inicio = document.getElementById("inicio").value;
+            var cantidad = document.getElementById("cantidad").value;
+            var atributo = document.getElementById("atributo").value;
+
+            $http.get(url + "?inicio="+ inicio + "&cantidad="+ cantidad +"&filtro=" + atributo )
+                .success(function (data) {
+                    $scope.data.list = data.lista;
+                    $scope.data.total=data.total;
+                }).error(function (data, code) {
+                alert("Error al realizar la busqueda");
+            });
+        };
+
+        $scope.limpiarCriterios = function () {
+
+            document.getElementById("inicio").value = "";
+            document.getElementById("atributo").value = "";
+            document.getElementById("cantidad").value = "";
+            getData();
+
         };
 
         /**

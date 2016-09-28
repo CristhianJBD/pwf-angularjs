@@ -66,6 +66,10 @@ app.controller('formularioPersonaCtrl', ['$scope', 'Shared', '$http',
             }
         };
 
+
+
+        
+
         $scope.solonumeros = function (e) {
 
             key = e.keyCode || e.which;
