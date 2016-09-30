@@ -1,15 +1,12 @@
 <!-- templates/lista-persona-partial -->
-<input placeholder="Atributo" type="text" id="atributo" name="atributo" />
-<input placeholder="Inicio" type="number" id="inicio" name="inicio" />
-<input placeholder="Cantidad" type="number" id="cantidad" name="cantidad" />
-<button class="glyphicon glyphicon-search" ng-click="buscarContactos()"></button>
-<button class="btn btn-default" ng-click="limpiarCriterios()">Limpiar</button>
-
-</br>
-</br>
 <div class="panel panel-default">
     <div class="panel-heading">Listado de personas</div>
     <div class="panel-body">
+        <input placeholder="Atributo" type="text" id="atributo" name="atributo"  ng-model="atributo"/>
+        <button class="glyphicon glyphicon-search" ng-click="buscarContactos()"></button>
+        <button class="btn btn-default" ng-click="limpiarCriterios()">Limpiar</button>
+        </br>
+        </br>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -50,6 +47,11 @@
                 </tr>
             </tbody>
         </table>
+
+        <pagination total-items="total" ng-model="currentPage" ng-change="buscarContactos()"
+                    max-size="5" boundary-links="true"
+                    items-per-page="numPerPage" class="pagination-sm">
+        </pagination>
     </div>
 </div>
 <!-- Fin templates/lista-persona-partial -->

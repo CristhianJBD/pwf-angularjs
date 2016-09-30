@@ -1,7 +1,7 @@
 /**
  * Enrutador de la aplicación
  */
-var app = angular.module('pwfApp', ['ngRoute']);
+var app = angular.module('pwfApp', ['ngRoute', 'ui.bootstrap']);
 // configure our routes
 app.config(function ($routeProvider) {
     $routeProvider
