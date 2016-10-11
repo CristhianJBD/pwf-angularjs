@@ -5,7 +5,7 @@
 app.controller('listaPersonaCtrl', ['$scope', 'personaService', 'Shared', '$http' , '$rootScope',
 
     function ($scope, personaService, Shared, $http, $rootScope) {
-        var url = 'http://localhost:1337/163.172.218.124/pwf/rest/agenda';
+        var url = 'https://desa03.konecta.com.py/pwf/rest/agenda';
         /**
          * Array que contiene los datos de la visualización
          * @type Array
