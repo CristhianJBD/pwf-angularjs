@@ -3,8 +3,8 @@
     <div class="panel-heading">Listado de personas</div>
     <div class="panel-body">
         <input placeholder="Atributo" type="text" id="atributo" name="atributo"  ng-model="atributo"/>
-        <button class="glyphicon glyphicon-search" ng-click="buscarContactos()"></button>
-        <button class="btn btn-default" ng-click="limpiarCriterios()">Limpiar</button>
+        <a  role="button" class="glyphicon glyphicon-search" ng-click="buscarContactos()"></a>
+        <a  role="button" class="btn btn-default" ng-click="limpiarCriterios()">Limpiar</a>
         </br>
         </br>
         <table class="table table-striped">
@@ -26,6 +26,8 @@
                     <th>Dirección</th>
                     <th>Fecha de Creación</th>
                     <th>Fecha de Modificación</th>
+                    <th>Acciones</th>
+
 
                 </tr>
             </thead>
@@ -40,9 +42,9 @@
                     <td>{{item.fechacreacion | date:'dd-MM-yyyy HH-ss'}}</td>
                     <td>{{item.fechamodificacion | date:'dd-MM-yyyy HH-ss'}}</td>
 
-                    <td><button class="glyphicon glyphicon-eye-open" ng-click="verContacto(item)" ></button></td>
-                    <td><button class="glyphicon glyphicon-edit" ng-click="editarContacto(item)" ></button></td>
-                    <td><button class="glyphicon glyphicon-trash" ng-click="borrarContacto(item)"></button></td>
+                    <td><a role="button" class="glyphicon glyphicon-eye-open" ng-click="verContacto(item)" ></a>
+                    <a role="button" class="glyphicon glyphicon-edit" ng-click="editarContacto(item)" ></a>
+                    <a role="button" class="glyphicon glyphicon-trash" ng-click="borrarContacto(item)"></a></td>
 
                 </tr>
             </tbody>

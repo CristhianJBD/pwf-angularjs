@@ -13,7 +13,7 @@ app.controller('listaPersonaCtrl', ['$scope', 'personaService', 'Shared', '$http
          */
         $scope.data = Shared;
         $scope.persona = $rootScope.persona;
-        $scope.currentPage = 0;
+        $scope.currentPage = 1;
         $scope.numPerPage = 10;
         $scope.maxSize=5;
         $scope.atributo = "";
@@ -89,7 +89,9 @@ app.controller('listaPersonaCtrl', ['$scope', 'personaService', 'Shared', '$http
 
         function getContactos() {
 
-            $http.get(url + "?inicio="+ $scope.currentPage + "&cantidad="+ $scope.numPerPage +"&filtro=" + $scope.atributo )
+            var posicion = ($scope.currentPage-1)*10;
+
+            $http.get(url + "?inicio="+ posicion + "&cantidad="+ $scope.numPerPage +"&filtro=" + $scope.atributo )
                 .success(function (data) {
                     $scope.data.list = data.lista;
                     $scope.total=data.total;
@@ -116,10 +118,9 @@ app.controller('listaPersonaCtrl', ['$scope', 'personaService', 'Shared', '$http
          * @constructor
          */
         (function initialize() {
-            //se realiza el get solo si no hay datos
-            if ($scope.data.list.length == 0) {
+
                 getContactos();
-            }
+
         })();
     }
 ]);

@@ -15,11 +15,11 @@ app.config(function ($routeProvider) {
         })
         .when('/agenda/editar/:id',{
             templateUrl:'views/editar-persona.html',
-            controller :'listaPersonaCtrl',
+            controller :'listaPersonaCtrl'
         })
         .when('/agenda/ver/:id',{
             templateUrl:'views/ver-persona.html',
-            controller :'listaPersonaCtrl',
+            controller :'listaPersonaCtrl'
         });
 });
 
