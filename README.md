@@ -14,4 +14,4 @@ Proyecto front base con AngularJS correspondiente al la materia Programación We
 
 ## Github Pages
 
-El proyecto se encuentra disponible para una mejor visualización [aqui](https://cristhianjbd.github.io/pwf-angularjs/app/)
+El proyecto se encuentra disponible en el siguiente [link](https://cristhianjbd.github.io/pwf-angularjs/app/)
