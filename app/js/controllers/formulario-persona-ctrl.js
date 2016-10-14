@@ -1,10 +1,10 @@
 /**
  * Clase encargada de manejar el listado de personas.
  * @class
- */
-app.controller('formularioPersonaCtrl', ['$scope', 'Shared', '$http',
-    function ($scope, Shared,$http) {
-        var url = 'https://desa03.konecta.com.py/pwf/rest/agenda';
+ */t
+        app.controller('formularioPersonaCtrl', ['$scope', 'Shared', '$http',
+            function ($scope, Shared,$http) {
+                var url = 'https://desa03.konecta.com.py/pwf/rest/agenda';
 
         /**
          * Array que contiene los datos de la lista
